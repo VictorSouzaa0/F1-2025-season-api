@@ -1,21 +1,13 @@
 from django.db import models
+
+
 class Driver(models.Model):
-    image = models.ImageField('/drivers/')
-    name =  models.CharField(max_length=255, primary_key=True)
-    birth_date = models.DateField()
-    team = models.CharField(max_length=255)
-    country = models.CharField(max_length=255)
+    image = models.ImageField('media')
+    name = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=255)
+    tag = models.CharField(max_length=3)
+    team = models.CharField(max_length=50)
 
-    def __str__(self):
-        return f'Driver: {self.name} | {self.team}'
+    def  __str__(self):
+        return f'{self.name} | {self.tag}'
     
-class Legend(models.Model):
-    image = models.ImageField('/legends/')
-    name = models.CharField(max_length=255, primary_key=True)
-    birth_date = models.DateField()
-    country = models.CharField(max_length=100)
-    championships = models.IntegerField()
-    teams = models.TextField()
-
-    def __str__(self):
-        return f"Driver: {self.name} | {self.country}"
