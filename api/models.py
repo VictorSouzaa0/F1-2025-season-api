@@ -1,8 +1,6 @@
 from django.db import models
-
-
 class Driver(models.Model):
-    image = models.ImageField()
+    image = models.ImageField('/drivers/')
     name =  models.CharField(max_length=255, primary_key=True)
     birth_date = models.DateField()
     team = models.CharField(max_length=255)
@@ -12,7 +10,7 @@ class Driver(models.Model):
         return f'Driver: {self.name} | {self.team}'
     
 class Legend(models.Model):
-    image = models.ImageField()
+    image = models.ImageField('/legends/')
     name = models.CharField(max_length=255, primary_key=True)
     birth_date = models.DateField()
     country = models.CharField(max_length=100)
